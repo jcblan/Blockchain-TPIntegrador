@@ -1,7 +1,7 @@
 import os
 import sys
 
-from src.blockchaincode import BlockManager
+from src.blockchaincode import BlockManager, Bloque
 
 from flask import Flask, redirect, url_for, render_template, request
 
@@ -12,6 +12,7 @@ sys.path.append(root_folder)
 app = Flask(__name__)
 chain = []
 blockchain = BlockManager(chain)
+blockchain._crear_bloque_genesis_()
 
 
 @app.route("/")
@@ -22,16 +23,26 @@ def index():
 def registrar():
     return render_template('registrar.html')
 
-@app.route('/registro', methods=['POST', 'GET'])
+@app.route('/registro', methods=['POST'])
 def registro():
     if request.method == 'POST':
         email = request.form['email']
         motivo = request.form['motivo']
         archivo = request.form['archivo']
         
-        print(email, motivo, archivo)
-        return render_template('registro completo.html', email=email)
+        bloque = Bloque(email, motivo, archivo)
+        blockchain.agregar_nuevo(bloque)
+        hash = bloque.hash
+
+        return render_template('registro completo.html', email=email, hash=hash)
     
-@app.route('/detalle')
-def validar():
-    return render_template('validacion.html')
+    return render_template('registro completo.html')
+
+@app.route('/detalle/<hash>', methods=['GET'])
+def detalle(hash):
+    bloque = blockchain.blockchain.busqueda_hash(hash)
+    email = bloque.email
+    motivo = bloque.motive
+    fecha = bloque.timestamp
+
+    return render_template('validacion.html', email = email, motivo = motivo, fecha = fecha)

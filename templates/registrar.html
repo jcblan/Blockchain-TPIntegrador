@@ -8,8 +8,8 @@
     <title>Registrar</title>
 
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
 
   </head>
   <body>
@@ -17,7 +17,7 @@
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<img alt="Universidad de la Cuenca del Plata" src="logo.png" class="rounded">
+			<img alt="Universidad de la Cuenca del Plata" src="static/logo.png" class="rounded">
 			<h3>
 				Registro único de documentacion
 			</h3>
@@ -26,27 +26,30 @@
 			</p>
 			<div class="row">
 				<div class="col-md-8">
-					<form role="form">
-						<div class="form-group" action="{{url_for('registro')}}" method="POST">
+					<form role="form" action="{{ url_for('registro') }}" method="POST" class="was-validated">
+						<div class="form-group" >
 							 
 							<label for="email">
 								Email
 							</label>
-							<input type="text" class="form-control" id="email">
+							<input type="text" class="form-control" id="email" name="email"  required>
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="form-group">
 							 
 							<label for="motivo">
 								Motivo
 							</label>
-							<input type="text" class="form-control" id="motivo">
+							<input type="text" class="form-control" id="motivo" name="motivo" required>
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<div class="form-group">
 							 
 							<label for="archivo">
 								Archivo
 							</label>
-							<input type="text" class="form-control" id="archivo">
+							<input type="text" class="form-control" id="archivo" name="archivo"  required>
+							<div class="invalid-feedback">Este campo es obligatorio.</div>
 						</div>
 						<button type="submit" class="btn btn-primary">
 							Submit
@@ -60,8 +63,8 @@
 	</div>
 </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/scripts.js"></script>
   </body>
 </html>

@@ -1,3 +1,3 @@
 venv\Scripts\activate
-set FLASK_APP=server/app.py
+set FLASK_APP=app.py
 flask run
