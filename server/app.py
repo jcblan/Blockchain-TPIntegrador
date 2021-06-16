@@ -15,3 +15,11 @@ def index():
 @app.route('/registrar')
 def registrar():
     return render_template('registrar.html')
+
+@app.route('/registro')
+def registro():
+    return render_template('registro completo.html')
+    
+@app.route('/detalle')
+def validar():
+    return render_template('validacion.html')
