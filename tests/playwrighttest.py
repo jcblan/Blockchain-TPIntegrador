@@ -9,8 +9,8 @@ class ClassTest(unittest.TestCase):
             browser = p.chromium.launch()
             page = browser.new_page()
             page.goto("http://localhost:5000/registrar")
-            messageEmail = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(1) > label:nth-child(3)")
-            assert "Ingrese un valor válido" == messageEmail
+            messageEmail = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(1) > div")
+            assert "Este campo es obligatorio." == messageEmail
             browser.close()
 
     def test_titulo_equals_expected(page):
