@@ -10,7 +10,11 @@ class ClassTest(unittest.TestCase):
             page = browser.new_page()
             page.goto("http://localhost:5000/registrar")
             messageEmail = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(1) > div")
+            messageMotivo = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(2) > div")
+            messageArchivo = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(3) > div")
             assert "Este campo es obligatorio." == messageEmail
+            assert "Este campo es obligatorio." == messageMotivo
+            assert "Este campo es obligatorio." == messageArchivo
             browser.close()
 
     def test_titulo_equals_expected(page):
