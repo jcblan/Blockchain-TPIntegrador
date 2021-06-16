@@ -4,30 +4,25 @@ import os
 import sys
 
 class ClassTest(unittest.TestCase):
-    def test_title(self):
+    def test_message_email(self):
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page()
             page.goto("http://localhost:5000/registrar")
+            messageEmail = page.inner_text("body > div > div > div > div > div.col-md-8 > form > div:nth-child(1) > label:nth-child(3)")
+            assert "Ingrese un valor válido" == messageEmail
+            browser.close()
 
-            # Ingresamos el archivo
-            page.fill('text=Archivo', '123422.exe')
-
-            # Ingresamos el motivo
-            page.fill('text=Motivo', '1')
-
-            # Ingresamos el email
-            page.fill('text=Email', 'hola@123.com')
-
-            #Presionamos el boton Enviar
-            page.click('button#submit')
-
-            self.assertEqual("El que sea el nombre de la pagina siguiente",page.title())
-
+    def test_titulo_equals_expected(page):
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            page = browser.new_page()
+            page.goto("http://localhost:5000/registrar")
+            titulo = page.title()
+            assert "Registrar" == titulo
             browser.close()
 
             
-
 if __name__ == '__main__':
     unittest.main()
     
