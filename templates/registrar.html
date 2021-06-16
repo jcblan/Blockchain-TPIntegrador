@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Registrar</title>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<img alt="Universidad de la Cuenca del Plata" src="logo.png" class="rounded">
+			<h3>
+				Registro único de documentacion
+			</h3>
+			<p>
+				Ingrese los datos requeridos y el sistema generará el token de validación
+			</p>
+			<div class="row">
+				<div class="col-md-8">
+					<form role="form">
+						<div class="form-group" action="{{url_for('registro')}}" method="POST">
+							 
+							<label for="email">
+								Email
+							</label>
+							<input type="text" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+							 
+							<label for="motivo">
+								Motivo
+							</label>
+							<input type="text" class="form-control" id="motivo">
+						</div>
+						<div class="form-group">
+							 
+							<label for="archivo">
+								Archivo
+							</label>
+							<input type="text" class="form-control" id="archivo">
+						</div>
+						<button type="submit" class="btn btn-primary">
+							Submit
+						</button>
+					</form>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

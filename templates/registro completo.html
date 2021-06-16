@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Registrar</title>
+    <title>Registro Completo</title>
 
 
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -19,10 +19,10 @@
 		<div class="col-md-12">
 			<img alt="Universidad de la Cuenca del Plata" src="static/logo.png" class="rounded">
 			<h3>
-				Registro único de documentacion
+				Registro completado
 			</h3>
 			<p>
-				Ingrese los datos requeridos y el sistema generará el token de validación
+				Su documento fue registrado correctamente
 			</p>
 			<div class="row">
 				<div class="col-md-8">
@@ -30,27 +30,17 @@
 						<div class="form-group">
 							 
 							<label for="email">
-								Email
+								A nombre de:
 							</label>
-							<input type="text" class="form-control" id="email">
 						</div>
 						<div class="form-group">
 							 
-							<label for="motivo">
-								Motivo
+							<label for="hash">
+								Codigo de validación:
 							</label>
-							<input type="text" class="form-control" id="motivo">
+                            <!-- Cambiar clase, y poner contenido -->
+                            <input type="text" class="form-control" id="archivo">
 						</div>
-						<div class="form-group">
-							 
-							<label for="archivo">
-								Archivo
-							</label>
-							<input type="text" class="form-control" id="archivo">
-						</div>
-						<button type="submit" class="btn btn-primary">
-							Enviar
-						</button>
 					</form>
 				</div>
 				<div class="col-md-4">
