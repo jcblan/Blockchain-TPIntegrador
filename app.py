@@ -40,9 +40,11 @@ def registro():
 
 @app.route('/detalle/<hash>', methods=['GET'])
 def detalle(hash):
-    bloque = blockchain.blockchain.busqueda_hash(hash)
-    email = bloque.email
-    motivo = bloque.motive
-    fecha = bloque.timestamp
-
-    return render_template('validacion.html', email = email, motivo = motivo, fecha = fecha)
+    bloque = blockchain.busqueda_hash(hash)
+    if bloque != "none":
+        email = bloque.email
+        motivo = bloque.motive
+        fecha = bloque.timestamp
+        #fecha = "2021-04-19 20:48"
+        return render_template('validacion.html', email = email, motivo = motivo, fecha = fecha)
+    return render_template('registrar.html')

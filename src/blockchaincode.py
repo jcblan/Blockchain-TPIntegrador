@@ -54,13 +54,14 @@ class BlockManager:
 
     #Método para ingresar un bloque
     def agregar_nuevo(self, bloq):
-        ct = [Bloque]* (len(self.cadena)+1)#Crea el nuevo arreglo más grande
-        for i in range(len(self.cadena)):
-            ct[i]= self.cadena[i]
-        hant = self.cadena[len(self.cadena)-1].hash
-        bloq.hashant = hant
-        ct[len(self.cadena)]=bloq
-        self.cadena = ct
+        # ct = [Bloque]* (len(self.cadena)+1)#Crea el nuevo arreglo más grande
+        # for i in range(len(self.cadena)):
+        #     ct[i]= self.cadena[i]
+        # hant = self.cadena[len(self.cadena)-1].hash
+        # bloq.hashant = hant
+        # ct[len(self.cadena)]=bloq
+        # self.cadena = ct
+        self.cadena.append(bloq)
 
     #Metodo que devuelve un bloque por su indice
     def get_block(self,ind):
@@ -68,10 +69,10 @@ class BlockManager:
         
     #Metodo que devuelve un bloque buscando su hash
     def busqueda_hash(self,hh):
-        for i in range(len(self.cadena)-1):
-                if (self.cadena[i].hash == hh):
-                    ind = i
-        return (self.cadena[i])
+        for bloque in self.cadena:
+            if (bloque.hash == hh):
+                return bloque
+        return "none"
     
     #Método que limpia los elementos de la cadena
     def remove_chain(self):

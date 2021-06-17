@@ -1,3 +1,4 @@
+
 from playwright.sync_api import sync_playwright
 import unittest
 import os
@@ -15,15 +16,6 @@ class ClassTest(unittest.TestCase):
             assert "Este campo es obligatorio." == messageEmail
             assert "Este campo es obligatorio." == messageMotivo
             assert "Este campo es obligatorio." == messageArchivo
-            browser.close()
-
-    def test_titulo_equals_expected(page):
-        with sync_playwright() as p:
-            browser = p.chromium.launch()
-            page = browser.new_page()
-            page.goto("http://localhost:5000/registrar")
-            titulo = page.title()
-            assert "Registrar" == titulo
             browser.close()
 
             
